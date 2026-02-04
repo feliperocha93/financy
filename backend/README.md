@@ -57,9 +57,12 @@ npm run test:e2e
 ```
 
 ## Folder Structure
-- `src/schema`: GraphQL TypeDefs and Resolvers
-- `src/utils`: Utility functions (Auth, etc.)
-- `src/context.ts`: Apollo Server Context
+- `src/context.ts`: Apollo Server context
 - `src/server.ts`: Entry point
-- `prisma`: Database schema
-- `tests`: E2E tests
+- `src/dto/`: Data transfer objects (category, transaction)
+- `src/models/`: GraphQL type definitions (auth-payload, category, transaction, user)
+- `src/resolvers/`: GraphQL resolvers (auth, category, transaction, user)
+- `src/services/`: Business logic (auth, category, transaction)
+- `src/utils/`: Utility functions (auth, etc.)
+- `prisma/`: Database schema and migrations
+- `tests/`: E2E tests (Playwright)
