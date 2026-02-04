@@ -1,0 +1,44 @@
+import { Resolver, Query, Mutation, Arg, FieldResolver, Root, Ctx } from 'type-graphql';
+import { Category } from '../models/category.model';
+import { Transaction } from '../models/transaction.model';
+import { CreateCategoryInput, UpdateCategoryInput } from '../dto/category.dto';
+import { Context } from '../context';
+
+@Resolver(() => Category)
+export class CategoryResolver {
+  @Query(() => [Category])
+  async categories(@Ctx() context: Context) {
+    if (!context.user) throw new Error('Not authenticated');
+    return context.categoryService.findMany(context.user.id);
+  }
+
+  @Mutation(() => Category)
+  async createCategory(
+    @Arg('data') data: CreateCategoryInput,
+    @Ctx() context: Context
+  ) {
+    if (!context.user) throw new Error('Not authenticated');
+    return context.categoryService.create(context.user.id, data);
+  }
+
+  @Mutation(() => Category)
+  async updateCategory(
+    @Arg('id') id: string,
+    @Arg('data') data: UpdateCategoryInput,
+    @Ctx() context: Context
+  ) {
+    if (!context.user) throw new Error('Not authenticated');
+    return context.categoryService.update(id, context.user.id, data);
+  }
+
+  @Mutation(() => Boolean)
+  async deleteCategory(@Arg('id') id: string, @Ctx() context: Context) {
+    if (!context.user) throw new Error('Not authenticated');
+    return context.categoryService.delete(id, context.user.id);
+  }
+
+  @FieldResolver(() => [Transaction], { nullable: true })
+  async transactions(@Root() parent: { id: string }, @Ctx() context: Context) {
+    return context.transactionService.findManyByCategoryId(parent.id);
+  }
+}

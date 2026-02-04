@@ -1,0 +1,25 @@
+import { Resolver, Query, FieldResolver, Root, Ctx } from 'type-graphql';
+import { User } from '../models/user.model';
+import { Category } from '../models/category.model';
+import { Transaction } from '../models/transaction.model';
+import { Context } from '../context';
+
+@Resolver(() => User)
+export class UserResolver {
+  @Query(() => User, { nullable: true })
+  async me(@Ctx() context: Context) {
+    if (!context.user) throw new Error('Not authenticated');
+    const user = await context.authService.getUserById(context.user.id);
+    return user ?? null;
+  }
+
+  @FieldResolver(() => [Category], { nullable: true })
+  async categories(@Root() parent: { id: string }, @Ctx() context: Context) {
+    return context.categoryService.findManyByUserId(parent.id);
+  }
+
+  @FieldResolver(() => [Transaction], { nullable: true })
+  async transactions(@Root() parent: { id: string }, @Ctx() context: Context) {
+    return context.transactionService.findMany(parent.id);
+  }
+}
