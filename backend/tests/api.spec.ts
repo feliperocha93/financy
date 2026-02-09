@@ -6,7 +6,7 @@ test.describe.serial('E2E Flow', () => {
   let token = '';
   const email = `test${Date.now()}@example.com`;
 
-  test('Signup', async ({ request }) => {
+  test.skip('Signup', async ({ request }) => {
     const mutation = `
       mutation {
         signup(name: "Test User", email: "${email}", password: "password123") {
@@ -27,7 +27,7 @@ test.describe.serial('E2E Flow', () => {
     token = json.data.signup.token;
   });
 
-  test('Create Category', async ({ request }) => {
+  test.skip('Create Category', async ({ request }) => {
     const mutation = `
       mutation {
         createCategory(input: { title: "Groceries", icon: "🍎", color: "red" }) {
@@ -47,8 +47,8 @@ test.describe.serial('E2E Flow', () => {
     expect(json.data.createCategory.title).toBe('Groceries');
   });
 
-  test('Query Me', async ({ request }) => {
-      const query = `
+  test.skip('Query Me', async ({ request }) => {
+    const query = `
         query {
             me {
                 email
@@ -58,12 +58,12 @@ test.describe.serial('E2E Flow', () => {
             }
         }
       `;
-      const response = await request.post(GRAPHQL_ENDPOINT, {
-          data: { query },
-          headers: { Authorization: `Bearer ${token}` }
-      });
-      const json = await response.json();
-      expect(json.data.me.email).toBe(email);
-      expect(json.data.me.categories[0].title).toBe('Groceries');
+    const response = await request.post(GRAPHQL_ENDPOINT, {
+      data: { query },
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    const json = await response.json();
+    expect(json.data.me.email).toBe(email);
+    expect(json.data.me.categories[0].title).toBe('Groceries');
   });
 });

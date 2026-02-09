@@ -3,12 +3,13 @@ import { User } from '../models/user.model';
 import { Category } from '../models/category.model';
 import { Transaction } from '../models/transaction.model';
 import { Context } from '../context';
+import { GraphQLError } from 'graphql';
 
 @Resolver(() => User)
 export class UserResolver {
   @Query(() => User, { nullable: true })
   async me(@Ctx() context: Context) {
-    if (!context.user) throw new Error('Not authenticated');
+    if (!context.user) throw new GraphQLError('Not authenticated', { extensions: { code: 'NOT_AUTHENTICATED', http: { status: 401 } } });
     const user = await context.authService.getUserById(context.user.id);
     return user ?? null;
   }

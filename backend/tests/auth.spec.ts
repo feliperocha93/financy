@@ -1,10 +1,8 @@
 import { test, expect, } from '@playwright/test';
 
-const GRAPHQL_ENDPOINT = 'http://localhost:4000/';
-
 test.describe.serial('Auth', () => {
-  const name = `Test User ${Date.now()}`;
-  const email = `test${Date.now()}@example.com`;
+  const name = `Auth Test User ${Date.now()}`;
+  const email = `auth-test${Date.now()}@example.com`;
   const password = 'password123';
 
   test('Signup', async ({ request }) => {
@@ -19,7 +17,7 @@ test.describe.serial('Auth', () => {
         }
       }
     `;
-    const response = await request.post(GRAPHQL_ENDPOINT, {
+    const response = await request.post("/", {
       data: { query: mutation },
     });
     expect(response.ok()).toBeTruthy();
@@ -39,7 +37,7 @@ test.describe.serial('Auth', () => {
         }
       }
     `;
-    const response = await request.post(GRAPHQL_ENDPOINT, {
+    const response = await request.post("", {
       data: { query: mutation },
     });
     expect(response.ok()).toBeFalsy();
@@ -61,7 +59,7 @@ test.describe.serial('Auth', () => {
         }
       }
     `;
-    const response = await request.post(GRAPHQL_ENDPOINT, {
+    const response = await request.post("/", {
       data: { query: mutation },
     });
     expect(response.ok()).toBeTruthy();
@@ -77,7 +75,7 @@ test.describe.serial('Auth', () => {
         }
       }
     `;
-    const response = await request.post(GRAPHQL_ENDPOINT, {
+    const response = await request.post("/", {
       data: { query: mutation },
     });
     expect(response.ok()).toBeFalsy();
@@ -94,7 +92,7 @@ test.describe.serial('Auth', () => {
         }
       }
     `;
-    const response = await request.post(GRAPHQL_ENDPOINT, {
+    const response = await request.post("", {
       data: { query: mutation },
     });
     expect(response.ok()).toBeFalsy();
