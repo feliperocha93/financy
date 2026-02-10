@@ -3,12 +3,13 @@ import { Category } from '../models/category.model';
 import { Transaction } from '../models/transaction.model';
 import { CreateCategoryInput, UpdateCategoryInput } from '../dto/category.dto';
 import { Context } from '../context';
+import { NOT_AUTHENTICATED_ERROR } from '../errors';
 
 @Resolver(() => Category)
 export class CategoryResolver {
   @Query(() => [Category])
   async categories(@Ctx() context: Context) {
-    if (!context.user) throw new Error('Not authenticated');
+    if (!context.user) throw NOT_AUTHENTICATED_ERROR;
     return context.categoryService.findMany(context.user.id);
   }
 
@@ -17,7 +18,7 @@ export class CategoryResolver {
     @Arg('data') data: CreateCategoryInput,
     @Ctx() context: Context
   ) {
-    if (!context.user) throw new Error('Not authenticated');
+    if (!context.user) throw NOT_AUTHENTICATED_ERROR;
     return context.categoryService.create(context.user.id, data);
   }
 
@@ -27,13 +28,13 @@ export class CategoryResolver {
     @Arg('data') data: UpdateCategoryInput,
     @Ctx() context: Context
   ) {
-    if (!context.user) throw new Error('Not authenticated');
+    if (!context.user) throw NOT_AUTHENTICATED_ERROR;
     return context.categoryService.update(id, context.user.id, data);
   }
 
   @Mutation(() => Boolean)
   async deleteCategory(@Arg('id') id: string, @Ctx() context: Context) {
-    if (!context.user) throw new Error('Not authenticated');
+    if (!context.user) throw NOT_AUTHENTICATED_ERROR;
     return context.categoryService.delete(id, context.user.id);
   }
 
