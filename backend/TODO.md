@@ -8,3 +8,5 @@
 - [x]  Deve ser possível deletar uma categoria
 - [x]  Deve ser possível editar uma categoria
 - [x]  Deve ser possível listar todas as categorias
+- [ ]  Github actions
+- [ ]  Open telemetry

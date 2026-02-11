@@ -1,9 +1,8 @@
 import { test, expect, } from '@playwright/test';
+import { buildUserObject } from './testFixture';
 
-test.describe.serial('Auth', () => {
-  const name = `Auth Test User ${Date.now()}`;
-  const email = `auth-test${Date.now()}@example.com`;
-  const password = 'password123';
+test.describe('Auth', () => {
+  const { name, email, password } = buildUserObject('Auth');
 
   test('Signup', async ({ request }) => {
     const mutation = `
