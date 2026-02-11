@@ -1,15 +1,16 @@
 import { PrismaClient } from '@prisma/client';
 import { CreateTransactionInput } from '../dto/transaction.dto';
 import { UpdateTransactionInput } from '../dto/transaction.dto';
+import { ERROR_MESSAGE } from '../errors';
 
 export class TransactionService {
-  constructor(private readonly prisma: PrismaClient) {}
+  constructor(private readonly prisma: PrismaClient) { }
 
   async create(userId: string, input: CreateTransactionInput) {
     const category = await this.prisma.category.findFirst({
       where: { id: input.categoryId, userId },
     });
-    if (!category) throw new Error('Category not found or access denied');
+    if (!category) throw ERROR_MESSAGE('Category not found or access denied', 'CATEGORY_NOT_FOUND_OR_ACCESS_DENIED', 404);
 
     return this.prisma.transaction.create({
       data: {
@@ -27,7 +28,7 @@ export class TransactionService {
     const transaction = await this.prisma.transaction.findFirst({
       where: { id, userId },
     });
-    if (!transaction) throw new Error('Transaction not found or access denied');
+    if (!transaction) throw ERROR_MESSAGE('Transaction not found or access denied', 'TRANSACTION_NOT_FOUND_OR_ACCESS_DENIED', 404);
 
     const data: {
       description?: string;
@@ -45,7 +46,7 @@ export class TransactionService {
       const category = await this.prisma.category.findFirst({
         where: { id: input.categoryId, userId },
       });
-      if (!category) throw new Error('Category not found or access denied');
+      if (!category) throw ERROR_MESSAGE('Category not found or access denied', 'CATEGORY_NOT_FOUND_OR_ACCESS_DENIED', 404);
       data.categoryId = input.categoryId;
     }
 

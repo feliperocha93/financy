@@ -101,6 +101,21 @@ export const findCategory = async (id: string, userId: string) => {
 };
 
 /**
+ * Find a transaction by id and user id
+ * @param id - The transaction id
+ * @param userId - The user id
+ * @returns The transaction
+ */
+export const findTransaction = async (id: string, userId: string) => {
+  return await prisma.transaction.findFirst({
+    where: {
+      id,
+      userId,
+    },
+  });
+};
+
+/**
  * Delete all categories for a user
  * @param userId - The user id
  */

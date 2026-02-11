@@ -3,12 +3,13 @@ import { Transaction } from '../models/transaction.model';
 import { Category } from '../models/category.model';
 import { CreateTransactionInput, UpdateTransactionInput } from '../dto/transaction.dto';
 import { Context } from '../context';
+import { NOT_AUTHENTICATED_ERROR } from '../errors';
 
 @Resolver(() => Transaction)
 export class TransactionResolver {
   @Query(() => [Transaction])
   async transactions(@Ctx() context: Context) {
-    if (!context.user) throw new Error('Not authenticated');
+    if (!context.user) throw NOT_AUTHENTICATED_ERROR;
     return context.transactionService.findMany(context.user.id);
   }
 
@@ -17,7 +18,7 @@ export class TransactionResolver {
     @Arg('data') data: CreateTransactionInput,
     @Ctx() context: Context
   ) {
-    if (!context.user) throw new Error('Not authenticated');
+    if (!context.user) throw NOT_AUTHENTICATED_ERROR;
     return context.transactionService.create(context.user.id, data);
   }
 
@@ -27,13 +28,13 @@ export class TransactionResolver {
     @Arg('data') data: UpdateTransactionInput,
     @Ctx() context: Context
   ) {
-    if (!context.user) throw new Error('Not authenticated');
+    if (!context.user) throw NOT_AUTHENTICATED_ERROR;
     return context.transactionService.update(id, context.user.id, data);
   }
 
   @Mutation(() => Boolean)
   async deleteTransaction(@Arg('id') id: string, @Ctx() context: Context) {
-    if (!context.user) throw new Error('Not authenticated');
+    if (!context.user) throw NOT_AUTHENTICATED_ERROR;
     return context.transactionService.delete(id, context.user.id);
   }
 
