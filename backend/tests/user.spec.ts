@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 import { buildUserObject, cleanUser, createCategory, createTransaction, signup, SignupResponse } from './testFixture';
 
-test.describe.serial('User', async () => {
+test.describe('User', async () => {
   const userObject = buildUserObject('User - User');
   const thirdObject = buildUserObject('User - Third');
 

@@ -10,7 +10,6 @@ import {
     cleanUser,
 } from './testFixture';
 
-test.describe.configure({ mode: 'serial' });
 test.describe('Transaction', async () => {
     const userObject = buildUserObject('Transaction - User');
     const thirdObject = buildUserObject('Transaction - Third');

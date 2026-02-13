@@ -3,7 +3,7 @@ import { prisma } from "../src/context";
 import { TransactionType } from "@prisma/client";
 
 export interface UserObject {
-  name?: string;
+  name: string;
   email: string;
   password: string;
 }
