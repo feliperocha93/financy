@@ -14,7 +14,7 @@ env:
   POSTGRES_PASSWORD: password
   POSTGRES_DB: financy_test
   POSTGRES_PORT: 5432
-  POSTGRES_URL: postgresql://postgres:password@localhost:5432/financy_test
+  DATABASE_URL: "postgresql://postgres:password@localhost:5432/financy_test"
 
 jobs:
   e2e:
@@ -47,13 +47,13 @@ jobs:
         working-directory: backend
         run: npx prisma generate
         env:
-          DATABASE_URL: ${{ env.POSTGRES_URL }}
+          DATABASE_URL: ${{ env.DATABASE_URL }}
 
       - name: Run migrations
         working-directory: backend
         run: npx prisma migrate deploy
         env:
-          DATABASE_URL: ${{ env.POSTGRES_URL }}
+          DATABASE_URL: ${{ env.DATABASE_URL }}
 
       - name: Build
         working-directory: backend
@@ -63,4 +63,4 @@ jobs:
         working-directory: backend
         run: npm start & npm run test:e2e
         env:
-          DATABASE_URL: ${{ env.POSTGRES_URL }}
+          DATABASE_URL: ${{ env.DATABASE_URL }}
