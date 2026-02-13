@@ -1,0 +1,9 @@
+- color: #e4e810
+  description: 'Backend'
+  name: 'backend'
+- color: ##2d21d
+  description: 'Frontend'
+  name: 'frontend'
+- color: #575b66
+  description: 'CI'
+  name: 'ci'

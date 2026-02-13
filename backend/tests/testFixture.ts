@@ -48,6 +48,17 @@ export const signup = async (userObject: UserObject, request: APIRequestContext)
   return { userId, token };
 };
 
+export const createUser = async (userObject: UserObject) => {
+  const user = await prisma.user.create({
+    data: {
+      name: userObject.name,
+      email: userObject.email,
+      password: userObject.password,
+    },
+  });
+  return user.id;
+}
+
 /**
  * Create new category
  * @param userId - The user id

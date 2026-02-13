@@ -1,0 +1,70 @@
+name: E2E Backend
+
+on:
+  pull_request:
+    branches:
+      - master
+    types: [opened, reopened, synchronize]
+    paths-ignore:
+      - "frontend/**"
+      - .github/workflows/frontend**.yml
+
+env:
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: password
+  POSTGRES_DB: financy_test
+  POSTGRES_PORT: 5432
+  DATABASE_URL: "postgresql://postgres:password@localhost:5432/financy_test"
+  JWT_SECRET: "e2e-test-secret"
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:15-alpine
+        env:
+          POSTGRES_USER: ${{ env.POSTGRES_USER }}
+          POSTGRES_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
+          POSTGRES_DB: ${{ env.POSTGRES_DB }}
+          POSTGRES_PORT: ${{ env.POSTGRES_PORT }}
+        ports:
+          - 5432:5432
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.16.0"
+          cache: "npm"
+          cache-dependency-path: backend/package-lock.json
+
+      - name: Install dependencies
+        working-directory: backend
+        run: npm ci
+
+      - name: Generate Prisma client
+        working-directory: backend
+        run: npx prisma generate
+        env:
+          DATABASE_URL: ${{ env.DATABASE_URL }}
+
+      - name: Run migrations
+        working-directory: backend
+        run: npx prisma migrate deploy
+        env:
+          DATABASE_URL: ${{ env.DATABASE_URL }}
+
+      - name: Build
+        working-directory: backend
+        run: npm run build
+
+      - name: Run e2e tests
+        working-directory: backend
+        run: |
+          npm start &
+          npx wait-on tcp:4000
+          npm run test:e2e
+        env:
+          DATABASE_URL: ${{ env.DATABASE_URL }}
