@@ -3,7 +3,7 @@ import { prisma } from "../src/context";
 import { TransactionType } from "@prisma/client";
 
 export interface UserObject {
-  name: string;
+  name?: string;
   email: string;
   password: string;
 }
@@ -47,6 +47,17 @@ export const signup = async (userObject: UserObject, request: APIRequestContext)
   const token = json.data.signup.token;
   return { userId, token };
 };
+
+export const createUser = async (userObject: UserObject) => {
+  const user = await prisma.user.create({
+    data: {
+      name: userObject.name,
+      email: userObject.email,
+      password: userObject.password,
+    },
+  });
+  return user.id;
+}
 
 /**
  * Create new category

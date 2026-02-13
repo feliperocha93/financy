@@ -1,7 +1,7 @@
 import { test, expect, } from '@playwright/test';
 import { buildUserObject } from './testFixture';
 
-test.describe('Auth', () => {
+test.describe.serial('Auth', () => {
   const { name, email, password } = buildUserObject('Auth');
 
   test('Signup', async ({ request }) => {
