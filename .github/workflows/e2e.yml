@@ -61,6 +61,6 @@ jobs:
 
       - name: Run e2e tests
         working-directory: backend
-        run: npm start && npm run test:e2e
+        run: npm start & npm run test:e2e
         env:
           DATABASE_URL: ${{ env.POSTGRES_URL }}
