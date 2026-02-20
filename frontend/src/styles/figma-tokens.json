@@ -1,0 +1,1161 @@
+{
+  "colors": [
+    {
+      "name": "💡",
+      "hex": "#323238"
+    },
+    {
+      "name": "navegar",
+      "hex": "#e1e1e6"
+    },
+    {
+      "name": "🚀-sobre-💻-projeto-⬇️-baixar-assets-para-baixar-todos-os-assets-do-projeto,-use-os-atalhos:-mac:-⇧-shift-+-⌘-cmd-+-e-windows:-ctrl-+-shift-+-e",
+      "hex": "#c4c4cc"
+    },
+    {
+      "name": "🎨",
+      "hex": "#29292e"
+    },
+    {
+      "name": "cores",
+      "hex": "#ffffff"
+    },
+    {
+      "name": "cores",
+      "hex": "#09090a"
+    },
+    {
+      "name": "brand",
+      "hex": "#121214"
+    },
+    {
+      "name": "color",
+      "hex": "#124b2b"
+    },
+    {
+      "name": "color",
+      "hex": "#1f6f43"
+    },
+    {
+      "name": "color",
+      "hex": "#111827"
+    },
+    {
+      "name": "color",
+      "hex": "#374151"
+    },
+    {
+      "name": "color",
+      "hex": "#4b5563"
+    },
+    {
+      "name": "color",
+      "hex": "#6b7280"
+    },
+    {
+      "name": "color",
+      "hex": "#9ca3af"
+    },
+    {
+      "name": "color",
+      "hex": "#d1d5db"
+    },
+    {
+      "name": "color",
+      "hex": "#e5e7eb"
+    },
+    {
+      "name": "color",
+      "hex": "#f8f9fa"
+    },
+    {
+      "name": "color",
+      "hex": "#000000"
+    },
+    {
+      "name": "color",
+      "hex": "#ef4444"
+    },
+    {
+      "name": "color",
+      "hex": "#19ad70"
+    },
+    {
+      "name": "color",
+      "hex": "#1d4ed8"
+    },
+    {
+      "name": "color",
+      "hex": "#2563eb"
+    },
+    {
+      "name": "color",
+      "hex": "#dbeafe"
+    },
+    {
+      "name": "color",
+      "hex": "#7e22ce"
+    },
+    {
+      "name": "color",
+      "hex": "#9333ea"
+    },
+    {
+      "name": "color",
+      "hex": "#f3e8ff"
+    },
+    {
+      "name": "color",
+      "hex": "#be185d"
+    },
+    {
+      "name": "color",
+      "hex": "#db2777"
+    },
+    {
+      "name": "color",
+      "hex": "#fce7f3"
+    },
+    {
+      "name": "color",
+      "hex": "#b91c1c"
+    },
+    {
+      "name": "color",
+      "hex": "#dc2626"
+    },
+    {
+      "name": "color",
+      "hex": "#fee2e2"
+    },
+    {
+      "name": "color",
+      "hex": "#c2410c"
+    },
+    {
+      "name": "color",
+      "hex": "#ea580c"
+    },
+    {
+      "name": "color",
+      "hex": "#ffedd5"
+    },
+    {
+      "name": "color",
+      "hex": "#a16207"
+    },
+    {
+      "name": "color",
+      "hex": "#ca8a04"
+    },
+    {
+      "name": "color",
+      "hex": "#f7f3ca"
+    },
+    {
+      "name": "color",
+      "hex": "#15803d"
+    },
+    {
+      "name": "color",
+      "hex": "#16a34a"
+    },
+    {
+      "name": "color",
+      "hex": "#e0fae9"
+    },
+    {
+      "name": "esta-fonte-pode-ser-acessada-em-google-fonts",
+      "hex": "#33333d"
+    },
+    {
+      "name": "empty",
+      "hex": "#7c7c8a"
+    }
+  ],
+  "typography": [
+    {
+      "name": "Navegar",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 40,
+      "fontWeight": 600
+    },
+    {
+      "name": "🚀 Sobre 💻 Projeto ⬇️ Baixar assets  Para baixar todos os assets do projeto, use os atalhos:  Mac: ⇧ Shift + ⌘ Cmd + E   Windows: Ctrl + Shift + E",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 32,
+      "fontWeight": 400
+    },
+    {
+      "name": "Cores",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 40,
+      "fontWeight": 500
+    },
+    {
+      "name": "Brand",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 24,
+      "fontWeight": 300
+    },
+    {
+      "name": "#000000",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 18,
+      "fontWeight": 700
+    },
+    {
+      "name": "color-name",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "#000000",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 18,
+      "fontWeight": 700
+    },
+    {
+      "name": "color-name",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "Grayscale",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 24,
+      "fontWeight": 300
+    },
+    {
+      "name": "#000000",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 18,
+      "fontWeight": 700
+    },
+    {
+      "name": "color-name",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "#000000",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 18,
+      "fontWeight": 700
+    },
+    {
+      "name": "color-name",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "#000000",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 18,
+      "fontWeight": 700
+    },
+    {
+      "name": "color-name",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "#000000",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 18,
+      "fontWeight": 700
+    },
+    {
+      "name": "color-name",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "#000000",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 18,
+      "fontWeight": 700
+    },
+    {
+      "name": "color-name",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "#000000",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 18,
+      "fontWeight": 700
+    },
+    {
+      "name": "color-name",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "#000000",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 18,
+      "fontWeight": 700
+    },
+    {
+      "name": "color-name",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "#000000",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 18,
+      "fontWeight": 700
+    },
+    {
+      "name": "color-name",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "Neutral",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 24,
+      "fontWeight": 300
+    },
+    {
+      "name": "#000000",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 18,
+      "fontWeight": 700
+    },
+    {
+      "name": "color-name",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "#000000",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 18,
+      "fontWeight": 700
+    },
+    {
+      "name": "color-name",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "Feedback",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 24,
+      "fontWeight": 300
+    },
+    {
+      "name": "#000000",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 18,
+      "fontWeight": 700
+    },
+    {
+      "name": "color-name",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "#000000",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 18,
+      "fontWeight": 700
+    },
+    {
+      "name": "color-name",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "Colors",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 24,
+      "fontWeight": 300
+    },
+    {
+      "name": "#000000",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 18,
+      "fontWeight": 700
+    },
+    {
+      "name": "color-name",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "#000000",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 18,
+      "fontWeight": 700
+    },
+    {
+      "name": "color-name",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "#000000",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 18,
+      "fontWeight": 700
+    },
+    {
+      "name": "color-name",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "#000000",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 18,
+      "fontWeight": 700
+    },
+    {
+      "name": "color-name",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "#000000",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 18,
+      "fontWeight": 700
+    },
+    {
+      "name": "color-name",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "#000000",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 18,
+      "fontWeight": 700
+    },
+    {
+      "name": "color-name",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "#000000",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 18,
+      "fontWeight": 700
+    },
+    {
+      "name": "color-name",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "#000000",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 18,
+      "fontWeight": 700
+    },
+    {
+      "name": "color-name",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "#000000",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 18,
+      "fontWeight": 700
+    },
+    {
+      "name": "color-name",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "#000000",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 18,
+      "fontWeight": 700
+    },
+    {
+      "name": "color-name",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "#000000",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 18,
+      "fontWeight": 700
+    },
+    {
+      "name": "color-name",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "#000000",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 18,
+      "fontWeight": 700
+    },
+    {
+      "name": "color-name",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "#000000",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 18,
+      "fontWeight": 700
+    },
+    {
+      "name": "color-name",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "#000000",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 18,
+      "fontWeight": 700
+    },
+    {
+      "name": "color-name",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "#000000",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 18,
+      "fontWeight": 700
+    },
+    {
+      "name": "color-name",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "#000000",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 18,
+      "fontWeight": 700
+    },
+    {
+      "name": "color-name",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "#000000",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 18,
+      "fontWeight": 700
+    },
+    {
+      "name": "color-name",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "#000000",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 18,
+      "fontWeight": 700
+    },
+    {
+      "name": "color-name",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "#000000",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 18,
+      "fontWeight": 700
+    },
+    {
+      "name": "color-name",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "#000000",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 18,
+      "fontWeight": 700
+    },
+    {
+      "name": "color-name",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "#000000",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 18,
+      "fontWeight": 700
+    },
+    {
+      "name": "color-name",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "Tipografia",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 40,
+      "fontWeight": 500
+    },
+    {
+      "name": "Font Family",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 24,
+      "fontWeight": 300
+    },
+    {
+      "name": "Inter",
+      "fontFamily": "Inter",
+      "fontSize": 56,
+      "fontWeight": 700
+    },
+    {
+      "name": "Esta fonte pode ser acessada em Google Fonts",
+      "fontFamily": "Inter",
+      "fontSize": 16,
+      "fontWeight": 500
+    },
+    {
+      "name": "Ícones",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 40,
+      "fontWeight": 500
+    },
+    {
+      "name": "Os ícones podem ser acessados em Lucide Icons",
+      "fontFamily": "Inter",
+      "fontSize": 16,
+      "fontWeight": 500
+    },
+    {
+      "name": "Vetores",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 40,
+      "fontWeight": 500
+    },
+    {
+      "name": "Componentes",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 40,
+      "fontWeight": 500
+    },
+    {
+      "name": "Input",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 24,
+      "fontWeight": 300
+    },
+    {
+      "name": "Label",
+      "fontFamily": "Inter",
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "name": "Placebolder",
+      "fontFamily": "Inter",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "Helper",
+      "fontFamily": "Inter",
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "name": "Label",
+      "fontFamily": "Inter",
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "name": "Text |",
+      "fontFamily": "Inter",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "Helper",
+      "fontFamily": "Inter",
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "name": "Label",
+      "fontFamily": "Inter",
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "name": "Text",
+      "fontFamily": "Inter",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "Helper",
+      "fontFamily": "Inter",
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "name": "Label",
+      "fontFamily": "Inter",
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "name": "Text",
+      "fontFamily": "Inter",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "Helper",
+      "fontFamily": "Inter",
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "name": "Label",
+      "fontFamily": "Inter",
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "name": "Text",
+      "fontFamily": "Inter",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "Helper",
+      "fontFamily": "Inter",
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "name": "Label",
+      "fontFamily": "Inter",
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "name": "Option 1",
+      "fontFamily": "Inter",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "Helper",
+      "fontFamily": "Inter",
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "name": "Option 1",
+      "fontFamily": "Inter",
+      "fontSize": 16,
+      "fontWeight": 500
+    },
+    {
+      "name": "Option 2",
+      "fontFamily": "Inter",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "Option 3",
+      "fontFamily": "Inter",
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "name": "Empty",
+      "fontFamily": "Martian Mono",
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "name": "Active",
+      "fontFamily": "Martian Mono",
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "name": "Filled",
+      "fontFamily": "Martian Mono",
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "name": "Error",
+      "fontFamily": "Martian Mono",
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "name": "Disabled",
+      "fontFamily": "Martian Mono",
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "name": "Select",
+      "fontFamily": "Martian Mono",
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "name": "Label Button",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 24,
+      "fontWeight": 300
+    },
+    {
+      "name": "Label",
+      "fontFamily": "Inter",
+      "fontSize": 16,
+      "fontWeight": 500
+    },
+    {
+      "name": "Label",
+      "fontFamily": "Inter",
+      "fontSize": 16,
+      "fontWeight": 500
+    },
+    {
+      "name": "Label",
+      "fontFamily": "Inter",
+      "fontSize": 16,
+      "fontWeight": 500
+    },
+    {
+      "name": "Label",
+      "fontFamily": "Inter",
+      "fontSize": 16,
+      "fontWeight": 500
+    },
+    {
+      "name": "Label",
+      "fontFamily": "Inter",
+      "fontSize": 16,
+      "fontWeight": 500
+    },
+    {
+      "name": "Label",
+      "fontFamily": "Inter",
+      "fontSize": 16,
+      "fontWeight": 500
+    },
+    {
+      "name": "Label",
+      "fontFamily": "Inter",
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "name": "Label",
+      "fontFamily": "Inter",
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "name": "Label",
+      "fontFamily": "Inter",
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "name": "Label",
+      "fontFamily": "Inter",
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "name": "Label",
+      "fontFamily": "Inter",
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "name": "Label",
+      "fontFamily": "Inter",
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "name": "Md / Default",
+      "fontFamily": "Martian Mono",
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "name": "Md / Hover",
+      "fontFamily": "Martian Mono",
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "name": "Md / Disabled",
+      "fontFamily": "Martian Mono",
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "name": "Sm / Default",
+      "fontFamily": "Martian Mono",
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "name": "Sm / Hover",
+      "fontFamily": "Martian Mono",
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "name": "Sm / Disabled",
+      "fontFamily": "Martian Mono",
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "name": "Icon Button",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 24,
+      "fontWeight": 300
+    },
+    {
+      "name": "Default",
+      "fontFamily": "Martian Mono",
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "name": "Hover",
+      "fontFamily": "Martian Mono",
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "name": "Disabled",
+      "fontFamily": "Martian Mono",
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "name": "Link",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 24,
+      "fontWeight": 300
+    },
+    {
+      "name": "Label",
+      "fontFamily": "Inter",
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "name": "Label",
+      "fontFamily": "Inter",
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "name": "Default",
+      "fontFamily": "Martian Mono",
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "name": "Hover",
+      "fontFamily": "Martian Mono",
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "name": "Pagination Button",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 24,
+      "fontWeight": 300
+    },
+    {
+      "name": "1",
+      "fontFamily": "Inter",
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "name": "1",
+      "fontFamily": "Inter",
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "name": "1",
+      "fontFamily": "Inter",
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "name": "1",
+      "fontFamily": "Inter",
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "name": "Default",
+      "fontFamily": "Martian Mono",
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "name": "Hover",
+      "fontFamily": "Martian Mono",
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "name": "Active",
+      "fontFamily": "Martian Mono",
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "name": "Disabled",
+      "fontFamily": "Martian Mono",
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "name": "Tag",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 24,
+      "fontWeight": 300
+    },
+    {
+      "name": "Label",
+      "fontFamily": "Inter",
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "name": "Label",
+      "fontFamily": "Inter",
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "name": "Label",
+      "fontFamily": "Inter",
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "name": "Label",
+      "fontFamily": "Inter",
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "name": "Label",
+      "fontFamily": "Inter",
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "name": "Label",
+      "fontFamily": "Inter",
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "name": "Label",
+      "fontFamily": "Inter",
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "name": "Label",
+      "fontFamily": "Inter",
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "name": "Type",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": 24,
+      "fontWeight": 300
+    },
+    {
+      "name": "Entrada",
+      "fontFamily": "Inter",
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "name": "Saída",
+      "fontFamily": "Inter",
+      "fontSize": 14,
+      "fontWeight": 500
+    }
+  ],
+  "_meta": {
+    "fileKey": "neN9iRrmqDs4JIktNdezAe",
+    "styleguideNodeId": "3:377",
+    "generated": "2026-02-20T10:55:33.889Z"
+  }
+}
