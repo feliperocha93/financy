@@ -4,6 +4,8 @@ import { Button } from '@/components/ui/button'
 import { PageContainer } from '@/components/design-system'
 import { LogOut } from 'lucide-react'
 
+import logoSrc from '@/assets/Logo.svg'
+
 const nav = [
   { to: '/', label: 'Dashboard' },
   { to: '/transactions', label: 'Transações' },
@@ -19,6 +21,9 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
       <header className="border-b">
         <PageContainer className="flex h-14 items-center justify-between">
           <nav className="flex items-center gap-6">
+            <Link to="/" className="flex items-center shrink-0" aria-label="Financy home">
+              <img src={logoSrc} alt="Financy" className="h-8" />
+            </Link>
             {nav.map(({ to, label }) => (
               <Link
                 key={to}
