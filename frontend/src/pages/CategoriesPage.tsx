@@ -13,17 +13,17 @@ export function CategoriesPage() {
     <AppLayout>
       <div className="space-y-8">
         <div>
-          <H1>Categories</H1>
-          <Body className="text-muted-foreground mt-1">Manage your categories</Body>
+          <H1>Categorias</H1>
+          <Body className="text-muted-foreground mt-1">Gerenciar suas categorias</Body>
         </div>
 
-        {loading && <Body>Loading...</Body>}
+        {loading && <Body>Carregando...</Body>}
         {error && <p className="text-destructive">{error.message}</p>}
 
         {data?.categories && data.categories.length === 0 && (
           <Card>
             <CardContent className="py-8">
-              <Body className="text-muted-foreground text-center">No categories yet.</Body>
+              <Body className="text-muted-foreground text-center">Nenhuma categoria ainda.</Body>
             </CardContent>
           </Card>
         )}

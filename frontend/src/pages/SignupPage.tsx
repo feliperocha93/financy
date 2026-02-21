@@ -20,9 +20,9 @@ import { Body } from '@/components/design-system'
 import { PageContainer } from '@/components/design-system'
 
 const schema = z.object({
-  name: z.string().min(1, 'Name is required'),
-  email: z.string().email('Invalid email'),
-  password: z.string().min(6, 'Password must be at least 6 characters'),
+  name: z.string().min(1, 'Nome é obrigatório'),
+  email: z.string().email('E-mail inválido'),
+  password: z.string().min(8, 'A senha deve ter no mínimo 8 caracteres'),
 })
 
 type FormData = z.infer<typeof schema>
@@ -52,8 +52,8 @@ export function SignupPage() {
     <PageContainer maxWidth="sm" className="min-h-screen flex flex-col items-center justify-center py-12">
       <Card className="w-full">
         <CardHeader>
-          <CardTitle className="text-2xl">Sign up</CardTitle>
-          <CardDescription>Create your Financy account</CardDescription>
+          <CardTitle className="text-2xl">Criar conta</CardTitle>
+          <CardDescription>Comece a controlar suas finanças ainda hoje</CardDescription>
         </CardHeader>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <CardContent className="space-y-4">
@@ -61,11 +61,11 @@ export function SignupPage() {
               <p className="text-sm text-destructive">{error.message}</p>
             )}
             <div className="space-y-2">
-              <Label htmlFor="name">Name</Label>
+              <Label htmlFor="name">Nome completo</Label>
               <Input
                 id="name"
                 type="text"
-                placeholder="Your name"
+                placeholder="Seu nome completo"
                 {...form.register('name')}
               />
               {form.formState.errors.name && (
@@ -73,11 +73,11 @@ export function SignupPage() {
               )}
             </div>
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">E-mail</Label>
               <Input
                 id="email"
                 type="email"
-                placeholder="you@example.com"
+                placeholder="mail@exemplo.com"
                 {...form.register('email')}
               />
               {form.formState.errors.email && (
@@ -85,24 +85,25 @@ export function SignupPage() {
               )}
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password">Senha</Label>
               <Input
                 id="password"
                 type="password"
-                placeholder="At least 6 characters"
+                placeholder="Digite sua senha"
                 {...form.register('password')}
               />
               {form.formState.errors.password && (
                 <p className="text-sm text-destructive">{form.formState.errors.password.message}</p>
               )}
+              <p className="text-xs text-muted-foreground">A senha deve ter no mínimo 8 caracteres</p>
             </div>
           </CardContent>
           <CardFooter className="flex flex-col gap-4">
             <Button type="submit" className="w-full" disabled={loading}>
-              {loading ? 'Creating account...' : 'Create account'}
+              {loading ? 'Cadastrando...' : 'Cadastrar'}
             </Button>
             <Body className="text-center text-muted-foreground">
-              Already have an account? <Link to="/login" className="text-primary underline">Sign in</Link>
+              Já tem uma conta? <Link to="/login" className="text-primary underline">Fazer login</Link>
             </Body>
           </CardFooter>
         </form>

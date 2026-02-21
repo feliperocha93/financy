@@ -6,8 +6,8 @@ import { LogOut } from 'lucide-react'
 
 const nav = [
   { to: '/', label: 'Dashboard' },
-  { to: '/transactions', label: 'Transactions' },
-  { to: '/categories', label: 'Categories' },
+  { to: '/transactions', label: 'Transações' },
+  { to: '/categories', label: 'Categorias' },
 ]
 
 export function AppLayout({ children }: { children: React.ReactNode }) {
@@ -31,7 +31,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
           </nav>
           <div className="flex items-center gap-4">
             <span className="text-sm text-muted-foreground">{user?.email}</span>
-            <Button variant="ghost" size="icon" onClick={logout} aria-label="Log out">
+            <Button variant="ghost" size="icon" onClick={logout} aria-label="Sair da conta">
               <LogOut className="h-4 w-4" />
             </Button>
           </div>

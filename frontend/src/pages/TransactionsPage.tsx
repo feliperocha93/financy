@@ -13,17 +13,17 @@ export function TransactionsPage() {
     <AppLayout>
       <div className="space-y-8">
         <div>
-          <H1>Transactions</H1>
-          <Body className="text-muted-foreground mt-1">List of all your transactions</Body>
+          <H1>Transações</H1>
+          <Body className="text-muted-foreground mt-1">Lista de todas as suas transações</Body>
         </div>
 
-        {loading && <Body>Loading...</Body>}
+        {loading && <Body>Carregando...</Body>}
         {error && <p className="text-destructive">{error.message}</p>}
 
         {data?.transactions && data.transactions.length === 0 && (
           <Card>
             <CardContent className="py-8">
-              <Body className="text-muted-foreground text-center">No transactions yet.</Body>
+              <Body className="text-muted-foreground text-center">Nenhuma transação ainda.</Body>
             </CardContent>
           </Card>
         )}
@@ -35,11 +35,13 @@ export function TransactionsPage() {
                 <CardHeader className="pb-2">
                   <CardTitle className="text-base">{tx.description}</CardTitle>
                   <Body className="text-sm text-muted-foreground">
-                    {tx.date} · {tx.category?.title ?? 'Uncategorized'} · {tx.type}
+                    {tx.date} · {tx.category?.title ?? 'Sem categoria'} · {tx.type}
                   </Body>
                 </CardHeader>
                 <CardContent>
-                  <Body className="font-medium">{tx.amount.toLocaleString()}</Body>
+                  <Body className={`font-medium ${tx.type === 'income' || tx.type === 'Receita' ? 'text-green-600' : 'text-red-600'}`}>
+                    {tx.amount >= 0 ? '+' : ''} R$ {Math.abs(tx.amount).toLocaleString('pt-BR')}
+                  </Body>
                 </CardContent>
               </Card>
             ))}

@@ -20,8 +20,8 @@ import { Body } from '@/components/design-system'
 import { PageContainer } from '@/components/design-system'
 
 const schema = z.object({
-  email: z.string().email('Invalid email'),
-  password: z.string().min(1, 'Password is required'),
+  email: z.string().email('E-mail inválido'),
+  password: z.string().min(1, 'Senha é obrigatória'),
 })
 
 type FormData = z.infer<typeof schema>
@@ -51,8 +51,8 @@ export function LoginPage() {
     <PageContainer maxWidth="sm" className="min-h-screen flex flex-col items-center justify-center py-12">
       <Card className="w-full">
         <CardHeader>
-          <CardTitle className="text-2xl">Login</CardTitle>
-          <CardDescription>Sign in to your Financy account</CardDescription>
+          <CardTitle className="text-2xl">Fazer login</CardTitle>
+          <CardDescription>Entre na sua conta para continuar</CardDescription>
         </CardHeader>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <CardContent className="space-y-4">
@@ -60,11 +60,11 @@ export function LoginPage() {
               <p className="text-sm text-destructive">{error.message}</p>
             )}
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">E-mail</Label>
               <Input
                 id="email"
                 type="email"
-                placeholder="you@example.com"
+                placeholder="mail@exemplo.com"
                 {...form.register('email')}
               />
               {form.formState.errors.email && (
@@ -72,23 +72,31 @@ export function LoginPage() {
               )}
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password">Senha</Label>
               <Input
                 id="password"
                 type="password"
+                placeholder="Digite sua senha"
                 {...form.register('password')}
               />
               {form.formState.errors.password && (
                 <p className="text-sm text-destructive">{form.formState.errors.password.message}</p>
               )}
             </div>
+            <div className="flex items-center justify-between text-sm">
+              <label className="flex items-center gap-2 cursor-pointer">
+                <input type="checkbox" className="rounded border-input" />
+                <span className="text-muted-foreground">Lembrar-me</span>
+              </label>
+              <Link to="#" className="text-primary underline hover:no-underline">Recuperar senha</Link>
+            </div>
           </CardContent>
           <CardFooter className="flex flex-col gap-4">
             <Button type="submit" className="w-full" disabled={loading}>
-              {loading ? 'Signing in...' : 'Sign in'}
+              {loading ? 'Entrando...' : 'Entrar'}
             </Button>
             <Body className="text-center text-muted-foreground">
-              Don't have an account? <Link to="/signup" className="text-primary underline">Sign up</Link>
+              Ainda não tem uma conta? <Link to="/signup" className="text-primary underline">Criar conta</Link>
             </Body>
           </CardFooter>
         </form>
