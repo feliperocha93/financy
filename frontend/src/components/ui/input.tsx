@@ -8,6 +8,8 @@ export interface InputProps extends Omit<React.ComponentProps<"input">, "size"> 
   helperText?: string
   error?: boolean
   containerClassName?: string
+  startIcon?: React.ReactNode
+  endIcon?: React.ReactNode
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
@@ -21,12 +23,16 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       disabled = false,
       containerClassName,
       id: idProp,
+      startIcon,
+      endIcon,
       ...props
     },
     ref
   ) => {
     const id = React.useId()
     const inputId = idProp ?? id
+    const hasStartIcon = Boolean(startIcon)
+    const hasEndIcon = Boolean(endIcon)
 
     return (
       <div className={cn("space-y-1.5", containerClassName)}>
@@ -52,6 +58,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
               error
                 ? "border-destructive focus-visible:ring-destructive text-destructive placeholder:text-destructive/80 pl-9"
                 : "border-input text-foreground focus-visible:ring-primary",
+              hasStartIcon && !error && "pl-9",
+              hasEndIcon && "pr-9",
               disabled &&
                 "border-dashed bg-muted text-muted-foreground cursor-not-allowed opacity-70",
               className
@@ -61,9 +69,19 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             aria-describedby={helperText ? `${inputId}-helper` : undefined}
             {...props}
           />
+          {hasStartIcon && !error && (
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none text-muted-foreground [&_svg]:size-4">
+              {startIcon}
+            </span>
+          )}
           {error && (
             <span className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none text-destructive">
               <X className="size-4" aria-hidden />
+            </span>
+          )}
+          {hasEndIcon && (
+            <span className="absolute right-3 top-1/2 -translate-y-1/2 [&_svg]:size-4 text-muted-foreground flex items-center">
+              {endIcon}
             </span>
           )}
         </div>
