@@ -15,45 +15,106 @@ export default {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		colors: {
-  			background: 'hsl(var(--background))',
-  			foreground: 'hsl(var(--foreground))',
+  			/* Semantic (CSS variables) */
+  			background: 'var(--background)',
+  			foreground: 'var(--foreground)',
   			card: {
-  				DEFAULT: 'hsl(var(--card))',
-  				foreground: 'hsl(var(--card-foreground))'
+  				DEFAULT: 'var(--card)',
+  				foreground: 'var(--card-foreground)'
   			},
   			popover: {
-  				DEFAULT: 'hsl(var(--popover))',
-  				foreground: 'hsl(var(--popover-foreground))'
+  				DEFAULT: 'var(--popover)',
+  				foreground: 'var(--popover-foreground)'
   			},
   			primary: {
-  				DEFAULT: 'hsl(var(--primary))',
-  				foreground: 'hsl(var(--primary-foreground))'
+  				DEFAULT: 'var(--primary)',
+  				foreground: 'var(--primary-foreground)'
   			},
   			secondary: {
-  				DEFAULT: 'hsl(var(--secondary))',
-  				foreground: 'hsl(var(--secondary-foreground))'
+  				DEFAULT: 'var(--secondary)',
+  				foreground: 'var(--secondary-foreground)'
   			},
   			muted: {
-  				DEFAULT: 'hsl(var(--muted))',
-  				foreground: 'hsl(var(--muted-foreground))'
+  				DEFAULT: 'var(--muted)',
+  				foreground: 'var(--muted-foreground)'
   			},
   			accent: {
-  				DEFAULT: 'hsl(var(--accent))',
-  				foreground: 'hsl(var(--accent-foreground))'
+  				DEFAULT: 'var(--accent)',
+  				foreground: 'var(--accent-foreground)'
   			},
   			destructive: {
-  				DEFAULT: 'hsl(var(--destructive))',
-  				foreground: 'hsl(var(--destructive-foreground))'
+  				DEFAULT: 'var(--destructive)',
+  				foreground: 'var(--destructive-foreground)'
   			},
-  			border: 'hsl(var(--border))',
-  			input: 'hsl(var(--input))',
-  			ring: 'hsl(var(--ring))',
+  			border: 'var(--border)',
+  			input: 'var(--input)',
+  			ring: 'var(--ring)',
   			chart: {
-  				'1': 'hsl(var(--chart-1))',
-  				'2': 'hsl(var(--chart-2))',
-  				'3': 'hsl(var(--chart-3))',
-  				'4': 'hsl(var(--chart-4))',
-  				'5': 'hsl(var(--chart-5))'
+  				'1': 'var(--chart-1)',
+  				'2': 'var(--chart-2)',
+  				'3': 'var(--chart-3)',
+  				'4': 'var(--chart-4)',
+  				'5': 'var(--chart-5)'
+  			},
+  			/* Palette: Brand */
+  			brand: {
+  				dark: '#124b2b',
+  				base: '#1f6f43'
+  			},
+  			/* Palette: Grayscale */
+  			gray: {
+  				100: '#f8f9fa',
+  				200: '#e5e7eb',
+  				300: '#d1d5db',
+  				400: '#9ca3af',
+  				500: '#6b7280',
+  				600: '#4b5563',
+  				700: '#374151',
+  				800: '#111827'
+  			},
+  			/* Palette: Neutral */
+  			neutral: {
+  				black: '#000000',
+  				white: '#ffffff'
+  			},
+  			/* Palette: Feedback */
+  			danger: '#ef4444',
+  			success: '#19ad70',
+  			/* Palette: Colors (dark / base / light) */
+  			blue: {
+  				dark: '#1d4ed8',
+  				base: '#2563eb',
+  				light: '#dbeafe'
+  			},
+  			purple: {
+  				dark: '#7e22ce',
+  				base: '#9333ea',
+  				light: '#f3e8ff'
+  			},
+  			pink: {
+  				dark: '#be185d',
+  				base: '#db2777',
+  				light: '#fce7f3'
+  			},
+  			red: {
+  				dark: '#b91c1c',
+  				base: '#dc2626',
+  				light: '#fee2e2'
+  			},
+  			orange: {
+  				dark: '#c2410c',
+  				base: '#ea580c',
+  				light: '#ffedd5'
+  			},
+  			yellow: {
+  				dark: '#a16207',
+  				base: '#ca8a04',
+  				light: '#f7f3ca'
+  			},
+  			green: {
+  				dark: '#15803d',
+  				base: '#16a34a',
+  				light: '#e0fae9'
   			}
   		}
   	}

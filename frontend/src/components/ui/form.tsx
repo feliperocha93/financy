@@ -12,6 +12,7 @@ import {
 
 import { cn } from "@/lib/utils"
 import { Label } from "@/components/ui/label"
+import { Input } from "@/components/ui/input"
 
 const Form = FormProvider
 
@@ -164,6 +165,28 @@ const FormMessage = React.forwardRef<
 })
 FormMessage.displayName = "FormMessage"
 
+const FormInput = React.forwardRef<
+  HTMLInputElement,
+  React.ComponentProps<typeof Input>
+>((props, ref) => {
+  const { error, formItemId, formDescriptionId, formMessageId } = useFormField()
+  return (
+    <Input
+      ref={ref}
+      id={formItemId}
+      error={!!error}
+      aria-describedby={
+        !error
+          ? formDescriptionId
+          : `${formDescriptionId} ${formMessageId}`
+      }
+      aria-invalid={!!error}
+      {...props}
+    />
+  )
+})
+FormInput.displayName = "FormInput"
+
 export {
   useFormField,
   Form,
@@ -173,4 +196,5 @@ export {
   FormDescription,
   FormMessage,
   FormField,
+  FormInput,
 }
