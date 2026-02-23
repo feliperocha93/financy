@@ -3,7 +3,6 @@ export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }
 export { FormInput, useFormField, Form, FormItem, FormLabel, FormControl, FormDescription, FormMessage, FormField } from './form'
 export { IconButton, iconButtonVariants } from './icon-button'
 export { Input } from './input'
-export { Label } from './label'
 export { Link } from './link'
 export {
   PaginationItemButton,
