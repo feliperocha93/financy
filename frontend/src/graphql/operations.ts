@@ -82,8 +82,12 @@ export const CATEGORIES = gql`
     categories {
       id
       title
+      description
       icon
       color
+      transactions {
+        id
+      }
     }
   }
 `
@@ -93,6 +97,7 @@ export const CREATE_CATEGORY = gql`
     createCategory(data: $data) {
       id
       title
+      description
       icon
       color
     }
@@ -104,6 +109,7 @@ export const UPDATE_CATEGORY = gql`
     updateCategory(id: $id, data: $data) {
       id
       title
+      description
       icon
       color
     }
