@@ -4,7 +4,7 @@ import { useMutation } from '@apollo/client/react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { Mail, Lock, Eye, EyeOff } from 'lucide-react'
+import { Mail, Lock, Eye, EyeClosed as EyeOff, UserPlus2 } from 'lucide-react'
 import { LOGIN } from '@/graphql/operations'
 import { useAuth } from '@/contexts/AuthContext'
 import { Button } from '@/components/ui/button'
@@ -51,6 +51,8 @@ export function LoginPage() {
       subtitle="Entre na sua conta para continuar"
       secondaryLabel="Criar conta"
       secondaryTo="/signup"
+      secondaryDescription="Ainda não tem uma conta?"
+      secondaryIcon={<UserPlus2 />}
     >
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <CardContent className="space-y-4">
@@ -64,6 +66,8 @@ export function LoginPage() {
               type="email"
               placeholder="mail@exemplo.com"
               startIcon={<Mail />}
+              error={!!form.formState.errors.email}
+              valid={!form.formState.errors.email && !!form.watch('email')}
               {...form.register('email')}
             />
             {form.formState.errors.email && (
@@ -77,6 +81,7 @@ export function LoginPage() {
               type={showPassword ? 'text' : 'password'}
               placeholder="Digite sua senha"
               startIcon={<Lock />}
+              error={!!form.formState.errors.password}
               endIcon={
                 <button
                   type="button"
@@ -84,7 +89,7 @@ export function LoginPage() {
                   className="cursor-pointer hover:text-foreground focus:outline-none"
                   aria-label={showPassword ? 'Ocultar senha' : 'Mostrar senha'}
                 >
-                  {showPassword ? <EyeOff /> : <Eye />}
+                  {showPassword ? <Eye /> : <EyeOff />}
                 </button>
               }
               {...form.register('password')}
@@ -98,7 +103,7 @@ export function LoginPage() {
               <input type="checkbox" className="rounded border-input" />
               <span className="text-muted-foreground">Lembrar-me</span>
             </label>
-            <Link to="#" className="text-primary underline hover:no-underline">
+            <Link to="#" className="text-primary hover:cursor-not-allowed">
               Recuperar senha
             </Link>
           </div>

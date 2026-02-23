@@ -4,7 +4,7 @@ import { useMutation } from '@apollo/client/react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { User, Mail, Lock, Eye, EyeOff } from 'lucide-react'
+import { User, Mail, Lock, Eye, EyeClosed as EyeOff, LogIn } from 'lucide-react'
 import { SIGNUP } from '@/graphql/operations'
 import { useAuth } from '@/contexts/AuthContext'
 import { Button } from '@/components/ui/button'
@@ -17,7 +17,7 @@ import { getAuthErrorMessage } from '@/lib/auth-errors'
 const schema = z.object({
   name: z.string().min(1, 'Nome é obrigatório'),
   email: z.string().email('E-mail inválido'),
-  password: z.string().min(6, 'A senha deve ter no mínimo 6 caracteres'),
+  password: z.string().min(8, 'A senha deve ter no mínimo 8 caracteres'),
 })
 
 type FormData = z.infer<typeof schema>
@@ -52,6 +52,8 @@ export function SignupPage() {
       subtitle="Comece a controlar suas finanças ainda hoje"
       secondaryLabel="Fazer login"
       secondaryTo="/login"
+      secondaryDescription="Já tem uma conta?"
+      secondaryIcon={<LogIn />}
     >
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <CardContent className="space-y-4">
@@ -65,6 +67,8 @@ export function SignupPage() {
               type="text"
               placeholder="Seu nome completo"
               startIcon={<User />}
+              error={!!form.formState.errors.name}
+              valid={!form.formState.errors.name && !!form.watch('name')}
               {...form.register('name')}
             />
             {form.formState.errors.name && (
@@ -78,6 +82,8 @@ export function SignupPage() {
               type="email"
               placeholder="mail@exemplo.com"
               startIcon={<Mail />}
+              error={!!form.formState.errors.email}
+              valid={!form.formState.errors.email && !!form.watch('email')}
               {...form.register('email')}
             />
             {form.formState.errors.email && (
@@ -91,6 +97,8 @@ export function SignupPage() {
               type={showPassword ? 'text' : 'password'}
               placeholder="Digite sua senha"
               startIcon={<Lock />}
+              error={!!form.formState.errors.password}
+              valid={!form.formState.errors.password && (form.watch('password')?.length ?? 0) >= 8}
               endIcon={
                 <button
                   type="button"
@@ -98,7 +106,7 @@ export function SignupPage() {
                   className="cursor-pointer hover:text-foreground focus:outline-none"
                   aria-label={showPassword ? 'Ocultar senha' : 'Mostrar senha'}
                 >
-                  {showPassword ? <EyeOff /> : <Eye />}
+                  {showPassword ? <Eye /> : <EyeOff />}
                 </button>
               }
               {...form.register('password')}
@@ -107,7 +115,7 @@ export function SignupPage() {
               <p className="text-sm text-destructive">{form.formState.errors.password.message}</p>
             )}
             <p className="text-xs text-muted-foreground">
-              A senha deve ter no mínimo 6 caracteres
+              A senha deve ter no mínimo 8 caracteres
             </p>
           </div>
           <Button type="submit" className="w-full" disabled={loading}>

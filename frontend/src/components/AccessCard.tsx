@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -16,6 +15,8 @@ interface AccessCardProps {
   children: React.ReactNode
   secondaryLabel: string
   secondaryTo: string
+  secondaryDescription: string
+  secondaryIcon: React.ReactNode
 }
 
 export function AccessCard({
@@ -23,21 +24,24 @@ export function AccessCard({
   subtitle,
   children,
   secondaryLabel,
+  secondaryDescription,
   secondaryTo,
+  secondaryIcon,
 }: AccessCardProps) {
   return (
     <PageContainer
       maxWidth="sm"
       className="min-h-screen flex flex-col items-center justify-center py-12"
     >
+      <img
+        src={logoSrc}
+        alt="FINANCY"
+        className="h-8 w-auto mb-8"
+      />
       <Card className="w-full max-w-[448px]">
         <CardHeader className="flex flex-col items-center text-center">
-          <img
-            src={logoSrc}
-            alt="FINANCY"
-            className="h-8 w-auto mb-4"
-          />
-          <h2 className="text-2xl font-semibold leading-none tracking-tight">{title}</h2>
+
+          <h2 className="text-xl font-semibold leading-none tracking-tight">{title}</h2>
           <CardDescription>{subtitle}</CardDescription>
         </CardHeader>
         {children}
@@ -47,10 +51,13 @@ export function AccessCard({
             <span className="text-sm text-muted-foreground">ou</span>
             <div className="flex-1 border-t border-border" />
           </div>
+          <p className="text-sm text-muted-foreground text-center">
+            {secondaryDescription}
+          </p>
           <Button variant="outline" className="w-full" asChild>
             <Link to={secondaryTo}>
+              {secondaryIcon}
               {secondaryLabel}
-              <ArrowRight className="size-4 ml-2" />
             </Link>
           </Button>
         </CardContent>
