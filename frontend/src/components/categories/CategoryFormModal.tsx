@@ -2,17 +2,19 @@ import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
+import { X } from 'lucide-react'
 import { Modal } from '@/components/ui/modal'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { CardHeader, CardContent } from '@/components/ui/card'
-import { SelectField } from '@/components/ui/select'
-import { CATEGORY_ICON_OPTIONS } from '@/lib/categoryIcons'
+import { Textarea } from '@/components/ui/textarea'
+import { IconButton } from '@/components/ui/icon-button'
+import { cn } from '@/lib/utils'
+import { CATEGORY_ICON_OPTIONS, getCategoryIcon } from '@/lib/categoryIcons'
 import { CATEGORY_COLOR_OPTIONS } from '@/constants/categoryColors'
 import type { Category } from '@/types/category'
 
 const schema = z.object({
-  title: z.string().min(1, 'Nome é obrigatório'),
+  title: z.string().min(1, 'Título é obrigatório'),
   description: z.string().optional(),
   icon: z.string().min(1, 'Ícone é obrigatório'),
   color: z.string().min(1, 'Cor é obrigatória'),
@@ -29,15 +31,6 @@ export interface CategoryFormModalProps {
   loading?: boolean
 }
 
-const iconSelectOptions = CATEGORY_ICON_OPTIONS.map((o) => ({
-  value: o.value,
-  label: o.label,
-}))
-const colorSelectOptions = CATEGORY_COLOR_OPTIONS.map((o) => ({
-  value: o.value,
-  label: o.label,
-}))
-
 export function CategoryFormModal({
   open,
   onOpenChange,
@@ -51,7 +44,7 @@ export function CategoryFormModal({
     defaultValues: {
       title: '',
       description: '',
-      icon: 'Folder',
+      icon: CATEGORY_ICON_OPTIONS[0].value,
       color: CATEGORY_COLOR_OPTIONS[0].value,
     },
   })
@@ -62,14 +55,14 @@ export function CategoryFormModal({
       form.reset({
         title: category.title,
         description: category.description ?? '',
-        icon: category.icon || 'Folder',
+        icon: category.icon || CATEGORY_ICON_OPTIONS[0].value,
         color: category.color || CATEGORY_COLOR_OPTIONS[0].value,
       })
     } else if (mode === 'create') {
       form.reset({
         title: '',
         description: '',
-        icon: 'Folder',
+        icon: CATEGORY_ICON_OPTIONS[0].value,
         color: CATEGORY_COLOR_OPTIONS[0].value,
       })
     }
@@ -80,77 +73,140 @@ export function CategoryFormModal({
     onOpenChange(false)
   }
 
-  const title = mode === 'create' ? 'Nova categoria' : 'Editar categoria'
+  const modalTitle = mode === 'create' ? 'Nova categoria' : 'Editar categoria'
+  const subtitle =
+    mode === 'create'
+      ? 'Organize suas transações com categorias.'
+      : 'Altere os dados da categoria.'
+  const selectedIcon = form.watch('icon')
+  const selectedColor = form.watch('color')
 
   return (
     <Modal open={open} onOpenChange={onOpenChange} contentClassName="p-0">
-      <CardHeader className="space-y-1 pb-4">
-        <h2 className="text-xl font-semibold">{title}</h2>
-        <p className="text-sm text-muted-foreground">
-          {mode === 'create'
-            ? 'Preencha os dados para criar uma nova categoria.'
-            : 'Altere os dados da categoria.'}
-        </p>
-      </CardHeader>
-      <CardContent className="pt-0">
+      <div className="p-6">
+        {/* Header: title + subtitle + close X */}
+        <div className="flex items-start justify-between gap-4">
+          <div className="space-y-1 min-w-0">
+            <h2 className="text-xl font-semibold">{modalTitle}</h2>
+            <p className="text-sm text-muted-foreground">{subtitle}</p>
+          </div>
+          <IconButton
+            size="sm"
+            onClick={() => onOpenChange(false)}
+            aria-label="Fechar"
+            className="shrink-0 rounded-md"
+          >
+            <X className="h-4 w-4" />
+          </IconButton>
+        </div>
+
         <form
           onSubmit={form.handleSubmit(handleSubmit)}
-          className="flex flex-col gap-4"
+          className="mt-6 flex flex-col gap-4"
         >
           <Input
-            label="Nome"
-            placeholder="Ex: Alimentação"
+            label="Título"
+            placeholder="Ex. Alimentação"
             error={!!form.formState.errors.title}
             {...form.register('title')}
           />
           {form.formState.errors.title && (
-            <p className="text-sm text-destructive">
+            <p className="text-sm text-destructive -mt-2">
               {form.formState.errors.title.message}
             </p>
           )}
-          <Input
-            label="Descrição (opcional)"
-            placeholder="Ex: Restaurantes, delivery e refeições"
+
+          <Textarea
+            label="Descrição"
+            placeholder="Descrição da categoria"
+            helperText="Opcional"
+            error={!!form.formState.errors.description}
             {...form.register('description')}
           />
-          <SelectField
-            label="Ícone"
-            options={iconSelectOptions}
-            value={form.watch('icon')}
-            onValueChange={(v) => form.setValue('icon', v)}
-            error={!!form.formState.errors.icon}
-          />
-          {form.formState.errors.icon && (
-            <p className="text-sm text-destructive">
-              {form.formState.errors.icon.message}
+          {form.formState.errors.description && (
+            <p className="text-sm text-destructive -mt-2">
+              {form.formState.errors.description.message}
             </p>
           )}
-          <SelectField
-            label="Cor"
-            options={colorSelectOptions}
-            value={form.watch('color')}
-            onValueChange={(v) => form.setValue('color', v)}
-            error={!!form.formState.errors.color}
-          />
-          {form.formState.errors.color && (
-            <p className="text-sm text-destructive">
-              {form.formState.errors.color.message}
-            </p>
-          )}
-          <div className="flex justify-end gap-2 pt-2">
+
+          <div className="space-y-2">
+            <label className="text-sm font-medium leading-none text-muted-foreground">
+              Ícone
+            </label>
+            <div className="grid grid-cols-4 sm:grid-cols-6 gap-2">
+              {CATEGORY_ICON_OPTIONS.map((option) => {
+                const Icon = getCategoryIcon(option.value)
+                const isSelected = selectedIcon === option.value
+                return (
+                  <button
+                    key={option.value}
+                    type="button"
+                    onClick={() => form.setValue('icon', option.value)}
+                    className={cn(
+                      'flex h-10 w-10 items-center justify-center rounded-md border transition-colors',
+                      isSelected
+                        ? 'border-primary bg-green-100 text-primary ring-2 ring-primary'
+                        : 'border-input bg-background text-gray-500 hover:border-gray-400 hover:text-foreground'
+                    )}
+                    aria-pressed={isSelected}
+                    aria-label={option.label}
+                  >
+                    <Icon className="h-5 w-5" aria-hidden />
+                  </button>
+                )
+              })}
+            </div>
+            {form.formState.errors.icon && (
+              <p className="text-sm text-destructive">
+                {form.formState.errors.icon.message}
+              </p>
+            )}
+          </div>
+
+          <div className="space-y-2">
+            <label className="text-sm font-medium leading-none text-muted-foreground">
+              Cor
+            </label>
+            <div className="flex flex-wrap gap-2">
+              {CATEGORY_COLOR_OPTIONS.map((option) => {
+                const isSelected = selectedColor === option.value
+                return (
+                  <button
+                    key={option.value}
+                    type="button"
+                    onClick={() => form.setValue('color', option.value)}
+                    className={cn(
+                      'h-9 w-9 rounded-full border-2 transition-shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
+                      isSelected
+                        ? 'border-primary ring-2 ring-primary ring-offset-2'
+                        : 'border-gray-200 hover:border-gray-300'
+                    )}
+                    style={{ backgroundColor: option.value }}
+                    aria-pressed={isSelected}
+                    aria-label={option.label}
+                  />
+                )
+              })}
+            </div>
+            {form.formState.errors.color && (
+              <p className="text-sm text-destructive">
+                {form.formState.errors.color.message}
+              </p>
+            )}
+          </div>
+
+          <div className="flex justify-center pt-2">
             <Button
-              type="button"
-              variant="outline"
-              onClick={() => onOpenChange(false)}
+              type="submit"
+              disabled={loading}
+              size="lg"
+              className="min-w-[140px] rounded-lg"
             >
-              Cancelar
-            </Button>
-            <Button type="submit" disabled={loading}>
               {loading ? 'Salvando...' : 'Salvar'}
             </Button>
           </div>
         </form>
-      </CardContent>
+      </div>
     </Modal>
   )
 }

@@ -11,6 +11,14 @@ import {
   Lightbulb,
   Tag,
   ArrowUpDown,
+  Briefcase,
+  PiggyBank,
+  Building,
+  Gift,
+  Home,
+  BookOpen,
+  List,
+  Heart,
 } from 'lucide-react'
 
 const iconMap: Record<string, LucideIcon> = {
@@ -28,21 +36,37 @@ const iconMap: Record<string, LucideIcon> = {
   Lightbulb,
   Tag,
   ArrowUpDown,
+  Briefcase,
+  PiggyBank,
+  Building,
+  Gift,
+  Home,
+  BookOpen,
+  List,
+  Heart,
 }
 
 const defaultIcon = Folder
 
 export const CATEGORY_ICON_OPTIONS = [
+  { value: 'Briefcase', label: 'Trabalho' },
+  { value: 'Wallet', label: 'Carteira' },
+  { value: 'Heart', label: 'Saúde / Coração' },
+  { value: 'PiggyBank', label: 'Economia' },
+  { value: 'ShoppingCart', label: 'Compras' },
+  { value: 'Building', label: 'Empresa' },
+  { value: 'Gift', label: 'Presente' },
+  { value: 'Tag', label: 'Tag' },
+  { value: 'ShoppingBag', label: 'Alimentação' },
+  { value: 'Home', label: 'Casa' },
+  { value: 'BookOpen', label: 'Educação' },
+  { value: 'List', label: 'Lista' },
   { value: 'Folder', label: 'Pasta' },
-  { value: 'ShoppingBag', label: 'Compras / Alimentação' },
   { value: 'Film', label: 'Entretenimento' },
   { value: 'TrendingUp', label: 'Investimento' },
-  { value: 'ShoppingCart', label: 'Mercado' },
-  { value: 'Wallet', label: 'Salário' },
   { value: 'HeartPulse', label: 'Saúde' },
   { value: 'Car', label: 'Transporte' },
   { value: 'Lightbulb', label: 'Utilidades' },
-  { value: 'Tag', label: 'Tag' },
   { value: 'ArrowUpDown', label: 'Transações' },
 ] as const
 

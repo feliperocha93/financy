@@ -20,4 +20,5 @@ export {
 } from './select'
 export type { SelectFieldOption, SelectFieldProps } from './select'
 export { Tag, tagVariants } from './tag'
+export { Textarea } from './textarea'
 export { TypeIndicator, typeIndicatorVariants } from './type-indicator'
