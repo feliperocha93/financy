@@ -7,6 +7,7 @@ import { z } from 'zod'
 import { User, Mail, Lock, Eye, EyeClosed as EyeOff, LogIn } from 'lucide-react'
 import { SIGNUP } from '@/graphql/operations'
 import { useAuth } from '@/contexts/AuthContext'
+import { setRememberedCredentials } from '@/lib/auth'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -27,10 +28,16 @@ export function SignupPage() {
   const { login } = useAuth()
   const [showPassword, setShowPassword] = useState(false)
   const [signupMutation, { loading, error }] = useMutation(SIGNUP, {
-    onCompleted: (data: unknown) => {
+    onCompleted: (data: unknown, clientOptions) => {
       const payload = data as { signup: { token: string; user: { id: string; name: string; email: string } } }
       const { token, user } = payload.signup
       login(token, user)
+      const variables = clientOptions?.variables as { email?: string; password?: string } | undefined
+      const email = variables?.email
+      const password = variables?.password
+      if (email && password) {
+        setRememberedCredentials(email, password)
+      }
       navigate('/', { replace: true })
     },
   })

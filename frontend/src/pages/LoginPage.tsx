@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useMutation } from '@apollo/client/react'
 import { useForm } from 'react-hook-form'
@@ -7,6 +7,11 @@ import { z } from 'zod'
 import { Mail, Lock, Eye, EyeClosed as EyeOff, UserPlus2 } from 'lucide-react'
 import { LOGIN } from '@/graphql/operations'
 import { useAuth } from '@/contexts/AuthContext'
+import {
+  getRememberedCredentials,
+  setRememberedCredentials,
+  clearRememberedCredentials,
+} from '@/lib/auth'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -25,18 +30,38 @@ export function LoginPage() {
   const navigate = useNavigate()
   const { login } = useAuth()
   const [showPassword, setShowPassword] = useState(false)
-  const [loginMutation, { loading, error }] = useMutation(LOGIN, {
-    onCompleted: (data: unknown) => {
-      const payload = data as { login: { token: string; user: { id: string; name: string; email: string } } }
-      const { token, user } = payload.login
-      login(token, user)
-      navigate('/', { replace: true })
-    },
-  })
+  const [rememberMe, setRememberMe] = useState(false)
+  const rememberMeRef = useRef(rememberMe)
+  rememberMeRef.current = rememberMe
 
   const form = useForm<FormData>({
     resolver: zodResolver(schema),
     defaultValues: { email: '', password: '' },
+  })
+
+  useEffect(() => {
+    const credentials = getRememberedCredentials()
+    if (credentials) {
+      form.reset({ email: credentials.email, password: credentials.password })
+      setRememberMe(true)
+    }
+  }, [form])
+
+  const [loginMutation, { loading, error }] = useMutation(LOGIN, {
+    onCompleted: (data: unknown, clientOptions) => {
+      const payload = data as { login: { token: string; user: { id: string; name: string; email: string } } }
+      const { token, user } = payload.login
+      login(token, user)
+      const variables = clientOptions?.variables as { email?: string; password?: string } | undefined
+      const email = variables?.email
+      const password = variables?.password
+      if (rememberMeRef.current && email && password) {
+        setRememberedCredentials(email, password)
+      } else {
+        clearRememberedCredentials()
+      }
+      navigate('/', { replace: true })
+    },
   })
 
   const errorMessage = getAuthErrorMessage(error ?? undefined)
@@ -100,7 +125,12 @@ export function LoginPage() {
           </div>
           <div className="flex items-center justify-between text-sm">
             <label className="flex items-center gap-2 cursor-pointer">
-              <input type="checkbox" className="rounded border-input" />
+              <input
+                type="checkbox"
+                className="rounded border-input"
+                checked={rememberMe}
+                onChange={(e) => setRememberMe(e.target.checked)}
+              />
               <span className="text-muted-foreground">Lembrar-me</span>
             </label>
             <Link to="#" className="text-primary hover:cursor-not-allowed">
