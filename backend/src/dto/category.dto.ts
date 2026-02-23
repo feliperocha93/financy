@@ -5,6 +5,9 @@ export class CreateCategoryInput {
   @Field()
   title!: string;
 
+  @Field({ nullable: true })
+  description?: string;
+
   @Field()
   icon!: string;
 
@@ -16,6 +19,9 @@ export class CreateCategoryInput {
 export class UpdateCategoryInput {
   @Field({ nullable: true })
   title?: string;
+
+  @Field({ nullable: true })
+  description?: string;
 
   @Field({ nullable: true })
   icon?: string;
