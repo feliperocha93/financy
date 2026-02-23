@@ -14,7 +14,6 @@ import {
 } from '@/lib/auth'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
 import { CardContent } from '@/components/ui/card'
 import { AccessCard } from '@/components/AccessCard'
 import { getAuthErrorMessage } from '@/lib/auth-errors'
@@ -85,9 +84,9 @@ export function LoginPage() {
             <p className="text-sm text-destructive">{errorMessage}</p>
           )}
           <div className="space-y-2">
-            <Label htmlFor="email">E-mail</Label>
             <Input
               id="email"
+              label="E-mail"
               type="email"
               placeholder="mail@exemplo.com"
               startIcon={<Mail />}
@@ -96,13 +95,13 @@ export function LoginPage() {
               {...form.register('email')}
             />
             {form.formState.errors.email && (
-              <p className="text-sm text-destructive">{form.formState.errors.email.message}</p>
+              <p className="text-xs text-gray-500">{form.formState.errors.email.message}</p>
             )}
           </div>
           <div className="space-y-2">
-            <Label htmlFor="password">Senha</Label>
             <Input
               id="password"
+              label="Senha"
               type={showPassword ? 'text' : 'password'}
               placeholder="Digite sua senha"
               startIcon={<Lock />}
@@ -120,7 +119,7 @@ export function LoginPage() {
               {...form.register('password')}
             />
             {form.formState.errors.password && (
-              <p className="text-sm text-destructive">{form.formState.errors.password.message}</p>
+              <p className="text-xs text-gray-500">{form.formState.errors.password.message}</p>
             )}
           </div>
           <div className="flex items-center justify-between text-sm">

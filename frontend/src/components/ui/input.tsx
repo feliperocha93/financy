@@ -1,7 +1,8 @@
 import * as React from "react"
-import { Check, X } from "lucide-react"
+import { Check } from "lucide-react"
 
 import { cn } from "@/lib/utils"
+import { useState } from "react"
 
 export interface InputProps extends Omit<React.ComponentProps<"input">, "size"> {
   label?: string
@@ -31,6 +32,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     },
     ref
   ) => {
+
+    const [isFocused, setIsFocused] = useState(false)
     const id = React.useId()
     const inputId = idProp ?? id
     const hasStartIcon = Boolean(startIcon)
@@ -44,7 +47,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             htmlFor={inputId}
             className={cn(
               "text-sm font-medium leading-none",
-              error ? "text-destructive" : "text-foreground",
+              error ? "text-destructive" : isFocused ? "text-brand-base" : "text-muted-foreground",
               disabled && "text-muted-foreground"
             )}
           >
@@ -58,9 +61,9 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             disabled={disabled}
             className={cn(
               "flex h-9 w-full rounded-md border bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 disabled:cursor-not-allowed md:text-sm",
-              "border-input text-foreground focus-visible:ring-[var(--gray-400)]",
-              error && "pl-9 placeholder:text-destructive/80",
-              !error && hasStartIcon && "pl-9",
+              "border-input text-foreground focus-visible:ring-0 ",
+              hasStartIcon && "pl-9",
+              error && "placeholder:text-destructive/80",
               (hasEndIcon || hasValidIcon) && "pr-9",
               hasEndIcon && hasValidIcon && "pr-14",
               disabled &&
@@ -71,15 +74,17 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             aria-invalid={error}
             aria-describedby={helperText ? `${inputId}-helper` : undefined}
             {...props}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
           />
-          {hasStartIcon && !error && (
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none text-muted-foreground [&_svg]:size-4">
+          {hasStartIcon && (
+            <span
+              className={cn(
+                "absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none [&_svg]:size-4",
+                error ? "text-destructive" : isFocused ? "text-brand-base" : "text-muted-foreground"
+              )}
+            >
               {startIcon}
-            </span>
-          )}
-          {error && (
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none text-destructive" aria-hidden>
-              <X className="size-4" />
             </span>
           )}
           {(hasValidIcon || hasEndIcon) && (
@@ -101,18 +106,15 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           <p
             id={`${inputId}-helper`}
             className={cn(
-              "text-[0.8rem]",
-              error ? "text-destructive" : "text-foreground",
+              "text-[0.8rem] text-gray-500",
               disabled && "text-muted-foreground"
             )}
-          >
-            {helperText}
-          </p>
+          >{helperText}</p>
         )}
       </div>
-    )
+    );
   }
-)
-Input.displayName = "Input"
+);
+Input.displayName = "Input";
 
-export { Input }
+export { Input };
