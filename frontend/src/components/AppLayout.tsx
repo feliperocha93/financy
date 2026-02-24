@@ -1,8 +1,7 @@
 import { Link, useLocation } from 'react-router-dom'
 import { useAuth } from '@/contexts/AuthContext'
-import { Button } from '@/components/ui/button'
 import { PageContainer } from '@/components/design-system'
-import { LogOut } from 'lucide-react'
+import { Avatar } from '@/components/Avatar'
 
 import logoSrc from '@/assets/Logo.svg'
 
@@ -13,7 +12,7 @@ const nav = [
 ]
 
 export function AppLayout({ children }: { children: React.ReactNode }) {
-  const { user, logout } = useAuth()
+  const { user } = useAuth()
   const location = useLocation()
 
   return (
@@ -34,12 +33,13 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
               </Link>
             ))}
           </nav>
-          <div className="flex items-center gap-4">
-            <span className="text-sm text-muted-foreground">{user?.email}</span>
-            <Button variant="ghost" size="icon" onClick={logout} aria-label="Sair da conta">
-              <LogOut className="h-4 w-4" />
-            </Button>
-          </div>
+          <Link
+            to="/profile"
+            className="flex items-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            aria-label="Abrir perfil"
+          >
+            <Avatar name={user?.name ?? ''} email={user?.email ?? ''} size="sm" />
+          </Link>
         </PageContainer>
       </header>
       <main className="flex-1 py-8">

@@ -1,4 +1,4 @@
-import { Resolver, Query, FieldResolver, Root, Ctx } from 'type-graphql';
+import { Resolver, Query, Mutation, Arg, FieldResolver, Root, Ctx } from 'type-graphql';
 import { User } from '../models/user.model';
 import { Category } from '../models/category.model';
 import { Transaction } from '../models/transaction.model';
@@ -12,6 +12,12 @@ export class UserResolver {
     if (!context.user) throw new GraphQLError('Not authenticated', { extensions: { code: 'NOT_AUTHENTICATED', http: { status: 401 } } });
     const user = await context.authService.getUserById(context.user.id);
     return user ?? null;
+  }
+
+  @Mutation(() => User)
+  async updateProfile(@Arg('name') name: string, @Ctx() context: Context) {
+    if (!context.user) throw new GraphQLError('Not authenticated', { extensions: { code: 'NOT_AUTHENTICATED', http: { status: 401 } } });
+    return context.authService.updateUser(context.user.id, { name });
   }
 
   @FieldResolver(() => [Category], { nullable: true })
