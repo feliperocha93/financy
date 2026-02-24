@@ -1,7 +1,8 @@
 import { Card, CardContent } from '@/components/ui/card'
 import { Caption } from '@/components/design-system'
-import { Tag, ArrowUpDown, ShoppingBag } from 'lucide-react'
+import { Tag, ArrowUpDown } from 'lucide-react'
 import type { Category } from '@/types/category'
+import { CategoryIcon } from '@/lib/categoryIcons'
 
 function getTransactionCount(cat: Category): number {
   return cat.transactions?.length ?? 0
@@ -27,8 +28,8 @@ export function CategorySummaryCards({ categories }: CategorySummaryCardsProps) 
   return (
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       <Card>
-        <CardContent className="flex flex-row items-center gap-4 pt-6">
-          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-gray-200 text-gray-600">
+        <CardContent className="flex flex-row items-center gap-4 p-6">
+          <div className="text-gray-600">
             <Tag className="h-6 w-6" aria-hidden />
           </div>
           <div>
@@ -38,8 +39,8 @@ export function CategorySummaryCards({ categories }: CategorySummaryCardsProps) 
         </CardContent>
       </Card>
       <Card>
-        <CardContent className="flex flex-row items-center gap-4 pt-6">
-          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-gray-200 text-gray-600">
+        <CardContent className="flex flex-row items-center gap-4 p-6">
+          <div className="text-gray-600">
             <ArrowUpDown className="h-6 w-6" aria-hidden />
           </div>
           <div>
@@ -49,9 +50,9 @@ export function CategorySummaryCards({ categories }: CategorySummaryCardsProps) 
         </CardContent>
       </Card>
       <Card>
-        <CardContent className="flex flex-row items-center gap-4 pt-6">
-          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-gray-200 text-gray-600">
-            <ShoppingBag className="h-6 w-6" aria-hidden />
+        <CardContent className="flex flex-row items-center gap-4 p-6">
+          <div className="text-gray-600">
+            {mostUsed?.icon && <CategoryIcon iconName={mostUsed.icon} size={24} />}
           </div>
           <div>
             <p className="text-2xl font-bold">

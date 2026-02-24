@@ -133,7 +133,7 @@ export function CategoryFormModal({
             <label className="text-sm font-medium leading-none text-muted-foreground">
               Ícone
             </label>
-            <div className="grid grid-cols-4 sm:grid-cols-6 gap-2">
+            <div className="grid grid-cols-8 gap-2">
               {CATEGORY_ICON_OPTIONS.map((option) => {
                 const Icon = getCategoryIcon(option.value)
                 const isSelected = selectedIcon === option.value
@@ -167,7 +167,7 @@ export function CategoryFormModal({
             <label className="text-sm font-medium leading-none text-muted-foreground">
               Cor
             </label>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex justify-between mb-4">
               {CATEGORY_COLOR_OPTIONS.map((option) => {
                 const isSelected = selectedColor === option.value
                 return (
@@ -176,10 +176,10 @@ export function CategoryFormModal({
                     type="button"
                     onClick={() => form.setValue('color', option.value)}
                     className={cn(
-                      'h-9 w-9 rounded-full border-2 transition-shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
+                      'h-5 w-10 border-1 rounded-sm transition-shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
                       isSelected
                         ? 'border-primary ring-2 ring-primary ring-offset-2'
-                        : 'border-gray-200 hover:border-gray-300'
+                        : 'border-gray-200 ring-1 ring-offset-2 hover:opacity-80'
                     )}
                     style={{ backgroundColor: option.value }}
                     aria-pressed={isSelected}
@@ -200,7 +200,7 @@ export function CategoryFormModal({
               type="submit"
               disabled={loading}
               size="lg"
-              className="min-w-[140px] rounded-lg"
+              className="w-full rounded-lg"
             >
               {loading ? 'Salvando...' : 'Salvar'}
             </Button>

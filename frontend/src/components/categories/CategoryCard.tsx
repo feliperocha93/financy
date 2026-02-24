@@ -29,9 +29,17 @@ export function CategoryCard({ category, onEdit, onDelete }: CategoryCardProps) 
             style={{ backgroundColor: category.color ? `${category.color}20` : '#e5e7eb' }}
             aria-hidden
           >
-            <CategoryIcon iconName={category.icon} size={24} />
+            <CategoryIcon iconName={category.icon} size={20} className='text-gray-400' />
           </div>
           <div className="flex shrink-0 gap-1">
+          <IconButton
+              size="sm"
+              onClick={() => onDelete(category)}
+              aria-label="Excluir categoria"
+              className='text-destructive'
+            >
+              <Trash2 className="h-4 w-4" />
+            </IconButton>
             <IconButton
               size="sm"
               onClick={() => onEdit(category)}
@@ -39,22 +47,17 @@ export function CategoryCard({ category, onEdit, onDelete }: CategoryCardProps) 
             >
               <Pencil className="h-4 w-4" />
             </IconButton>
-            <IconButton
-              size="sm"
-              onClick={() => onDelete(category)}
-              aria-label="Excluir categoria"
-            >
-              <Trash2 className="h-4 w-4" />
-            </IconButton>
           </div>
         </div>
-        <Body className="mt-3 font-semibold">{category.title}</Body>
-        {category.description && (
-          <Caption className="mt-1 block">{category.description}</Caption>
-        )}
-        <div className="mt-3 flex flex-wrap items-center gap-2">
+        <Body className="mt-4 font-semibold">{category.title}</Body>
+        <div className='h-12'>
+          {category.description && (
+            <Caption className="block text-sm text-light mt-1 text-muted-foreground">{category.description}</Caption>
+          )}
+        </div>
+        <div className="flex flex-wrap items-center justify-between">
           <CategoryPill label={category.title} color={category.color} />
-          <Caption className="text-muted-foreground">
+          <Caption className="text-muted-foreground text-sm text-light">
             {count} {itemLabel}
           </Caption>
         </div>

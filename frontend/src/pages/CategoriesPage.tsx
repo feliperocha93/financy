@@ -88,7 +88,7 @@ export function CategoriesPage() {
       <div className="space-y-8">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <H1>Categorias</H1>
+            <H1 className="text-xl font-semibold">Categorias</H1>
             <Body className="mt-1 text-muted-foreground">
               Organize suas transações por categorias
             </Body>
