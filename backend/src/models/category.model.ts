@@ -9,6 +9,9 @@ export class Category {
   @Field()
   title!: string;
 
+  @Field({ nullable: true })
+  description?: string;
+
   @Field()
   icon!: string;
 
