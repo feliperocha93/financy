@@ -9,6 +9,7 @@ type AuthContextValue = {
   isAuthenticated: boolean
   login: (token: string, user: User) => void
   logout: () => void
+  updateUser: (updates: Pick<User, 'name'>) => void
 }
 
 const AuthContext = React.createContext<AuthContextValue | null>(null)
@@ -30,12 +31,22 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setUserState(null)
   }, [])
 
+  const updateUser = React.useCallback((updates: Pick<User, 'name'>) => {
+    setUserState((prev) => {
+      if (!prev) return prev
+      const next = { ...prev, ...updates }
+      setUser(next)
+      return next
+    })
+  }, [])
+
   const value: AuthContextValue = {
     token,
     user,
     isAuthenticated: !!token,
     login,
     logout,
+    updateUser,
   }
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>

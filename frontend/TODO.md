@@ -1,4 +1,4 @@
-- [ ]  O usuário pode criar uma conta e fazer login
+- [x]  O usuário pode criar uma conta e fazer login
 - [ ]  O usuário pode ver e gerenciar apenas as transações e categorias criadas por ele
 - [ ]  Deve ser possível criar uma transação
 - [ ]  Deve ser possível deletar uma transação

@@ -115,3 +115,13 @@ export const DELETE_CATEGORY = gql`
     deleteCategory(id: $id)
   }
 `
+
+export const UPDATE_PROFILE = gql`
+  mutation UpdateProfile($name: String!) {
+    updateProfile(name: $name) {
+      id
+      name
+      email
+    }
+  }
+`

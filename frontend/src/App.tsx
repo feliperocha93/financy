@@ -11,6 +11,7 @@ import { SignupPage } from '@/pages/SignupPage'
 import { DashboardPage } from '@/pages/DashboardPage'
 import { TransactionsPage } from '@/pages/TransactionsPage'
 import { CategoriesPage } from '@/pages/CategoriesPage'
+import { ProfilePage } from '@/pages/ProfilePage'
 import './index.css'
 
 const queryClient = new QueryClient()
@@ -59,6 +60,14 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <CategoriesPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/profile"
+                element={
+                  <ProtectedRoute>
+                    <ProfilePage />
                   </ProtectedRoute>
                 }
               />
