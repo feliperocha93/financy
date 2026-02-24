@@ -8,3 +8,10 @@
 - [ ]  Deve ser possível deletar uma categoria
 - [ ]  Deve ser possível editar uma categoria
 - [ ]  Deve ser possível listar todas as categorias
+- [ ]
+
+- [ ] Pente fino categoria
+- [ ] Transações ( Com modal )
+- [ ] Pente fino transações
+- [ ] Dashboard
+- [ ] Pente fino Dashboard

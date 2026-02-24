@@ -8,7 +8,7 @@ const typographyVariants = {
   h4: 'scroll-m-20 text-xl font-semibold tracking-tight',
   body: 'text-base leading-7',
   bodySm: 'text-sm leading-6',
-  caption: 'text-sm text-muted-foreground',
+  caption: 'text-xs text-muted-foreground',
   muted: 'text-muted-foreground',
 }
 
