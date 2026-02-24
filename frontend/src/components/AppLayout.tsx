@@ -1,8 +1,7 @@
 import { Link, useLocation } from 'react-router-dom'
 import { useAuth } from '@/contexts/AuthContext'
-import { Button } from '@/components/ui/button'
 import { PageContainer } from '@/components/design-system'
-import { LogOut } from 'lucide-react'
+import { Avatar } from '@/components/Avatar'
 
 import logoSrc from '@/assets/Logo.svg'
 
@@ -27,7 +26,7 @@ function getInitials(name: string | undefined, email: string | undefined): strin
 }
 
 export function AppLayout({ children }: { children: React.ReactNode }) {
-  const { user, logout } = useAuth()
+  const { user } = useAuth()
   const location = useLocation()
   const initials = getInitials(user?.name, user?.email)
 
@@ -49,18 +48,13 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
               </Link>
             ))}
           </nav>
-          <div className="flex items-center gap-4">
-            <div
-              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-medium text-primary-foreground"
-              title={user?.email ?? undefined}
-              aria-hidden
-            >
-              {initials}
-            </div>
-            <Button variant="ghost" size="icon" onClick={logout} aria-label="Sair da conta">
-              <LogOut className="h-4 w-4" />
-            </Button>
-          </div>
+          <Link
+            to="/profile"
+            className="flex items-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            aria-label="Abrir perfil"
+          >
+            <Avatar name={user?.name ?? ''} email={user?.email ?? ''} size="sm" />
+          </Link>
         </PageContainer>
       </header>
       <main className="flex-1 py-8">

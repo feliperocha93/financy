@@ -36,4 +36,11 @@ export class AuthService {
   async getUserById(id: string) {
     return this.prisma.user.findUnique({ where: { id } });
   }
+
+  async updateUser(id: string, data: { name: string }) {
+    return this.prisma.user.update({
+      where: { id },
+      data: { name: data.name },
+    });
+  }
 }
