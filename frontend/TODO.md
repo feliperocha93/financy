@@ -10,8 +10,8 @@
 - [ ]  Deve ser possível listar todas as categorias
 - [ ]
 
-- [ ] Pente fino categoria
-- [ ] Transações ( Com modal )
-- [ ] Pente fino transações
-- [ ] Dashboard
+- [x] Pente fino categoria
+- [x] Transações ( Com modal )
+- [x] Pente fino transações
+- [ ] Dashboard (background das páginas, menu superior)
 - [ ] Pente fino Dashboard
