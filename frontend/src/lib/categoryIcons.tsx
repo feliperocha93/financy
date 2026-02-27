@@ -69,11 +69,13 @@ export function CategoryIcon({
   iconName,
   className,
   size = 24,
+  style,
 }: {
   iconName: string
   className?: string
   size?: number
+  style?: React.CSSProperties
 }) {
   const Icon = getCategoryIcon(iconName)
-  return <Icon className={className} size={size} aria-hidden />
+  return <Icon className={className} size={size} style={style} aria-hidden />
 }

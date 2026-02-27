@@ -51,6 +51,7 @@
 
     /* Semantic (mapped to palette) */
     --background: var(--neutral-white);
+    --page-background: var(--gray-100);
     --foreground: var(--gray-800);
     --card: var(--neutral-white);
     --card-foreground: var(--gray-800);
@@ -79,6 +80,7 @@
 
   .dark {
     --background: var(--gray-800);
+    --page-background: var(--gray-800);
     --foreground: var(--gray-100);
     --card: var(--gray-800);
     --card-foreground: var(--gray-100);
