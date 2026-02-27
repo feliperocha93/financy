@@ -11,7 +11,7 @@ describe('Button', () => {
   })
 
   it('applies variant and size via className', () => {
-    const { container } = render(
+    render(
       <Button variant="destructive" size="lg">
         Delete
       </Button>

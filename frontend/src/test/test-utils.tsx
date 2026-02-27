@@ -27,7 +27,7 @@ function createWrapper(
   return function Wrapper({ children }: { children: React.ReactNode }) {
     return (
       <QueryClientProvider client={queryClient}>
-        <MockedProvider mocks={[...mocks]} addTypename={false}>
+        <MockedProvider mocks={[...mocks]}>
           <AuthProvider>
             <BrowserRouter>{children}</BrowserRouter>
           </AuthProvider>

@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/client/react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { User, Mail, LogOut, Divide } from 'lucide-react'
+import { User, Mail, LogOut } from 'lucide-react'
 import { AppLayout } from '@/components/AppLayout'
 import { Avatar } from '@/components/Avatar'
 import { Button } from '@/components/ui/button'
@@ -28,9 +28,10 @@ export function ProfilePage() {
   })
 
   const [updateProfileMutation, { loading, error }] = useMutation(UPDATE_PROFILE, {
-    onCompleted: (data: { updateProfile: { id: string; name: string; email: string } }) => {
-      updateUser({ name: data.updateProfile.name })
-      form.reset({ name: data.updateProfile.name })
+    onCompleted: (data: unknown) => {
+      const result = data as { updateProfile: { id: string; name: string; email: string } }
+      updateUser({ name: result.updateProfile.name })
+      form.reset({ name: result.updateProfile.name })
     },
   })
 
