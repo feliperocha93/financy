@@ -16,29 +16,33 @@ A production-ready backend API for a Personal Finance Management application, bu
 - Docker & Docker Compose
 - Node.js (v20+)
 
-### 1. Start Infrastructure
+### 1. Install dependencies
+```bash
+pnpm install
+```
+
+### 2. Environment setup
+Copy `.env.example` to `.env` and set your own credentials. See comments in `.env.example` for what each variable expects; default values match the docker-compose database and are suitable for local development.
+```bash
+cp .env.example .env
+```
+
+### 3. Start infrastructure
 Start the PostgreSQL database using Docker Compose:
 ```bash
 docker-compose up -d
 ```
 
-### 2. Environment Setup
-The project comes with a default `.env` file for development.
-```env
-JWT_SECRET=supersecretkey123
-DATABASE_URL="postgresql://postgres:password@localhost:5432/financy?schema=public"
-```
-
-### 3. Database Migration
+### 4. Database migration
 Apply the Prisma schema to the database:
 ```bash
 npx prisma migrate dev --name init
 ```
 
-### 4. Start the Server
+### 5. Start the server
 Run the development server:
 ```bash
-npm run dev
+pnpm run dev
 ```
 The server will start at `http://localhost:4000/`.
 
@@ -47,13 +51,13 @@ The server will start at `http://localhost:4000/`.
 ### Unit Tests
 Run unit tests with Vitest:
 ```bash
-npm run test:unit
+pnpm run test:unit
 ```
 
 ### E2E Tests
 Run end-to-end tests with Playwright (requires server to be running):
 ```bash
-npm run test:e2e
+pnpm run test:e2e
 ```
 
 ## Folder Structure
