@@ -31,7 +31,9 @@ test-results/
 blob-report/
 playwright/.cache/
 
-# Prisma
+# Prisma / SQLite
+*.db
+*.db-journal
 /prisma/*.db
 /prisma/*.db-journal
 

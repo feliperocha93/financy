@@ -1,5 +1,4 @@
 import { ObjectType, Field, registerEnumType } from 'type-graphql';
-import { TransactionType as PrismaTransactionType } from '@prisma/client';
 import { Category } from './category.model';
 
 export enum TransactionType {
@@ -27,7 +26,7 @@ export class Transaction {
   date!: string;
 
   @Field(() => TransactionType)
-  type!: PrismaTransactionType;
+  type!: TransactionType;
 
   @Field(() => String)
   categoryId!: string;

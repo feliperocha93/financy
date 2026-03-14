@@ -1,6 +1,5 @@
 import { APIRequestContext } from "@playwright/test";
 import { prisma } from "../src/context";
-import { TransactionType } from "@prisma/client";
 
 export interface UserObject {
   name: string;
@@ -88,7 +87,7 @@ export const createTransaction = async (userId: string, categoryId: string) => {
       description: "Test Transaction",
       amount: 100,
       date: new Date(),
-      type: TransactionType.INCOME,
+      type: "INCOME",
       categoryId,
       userId,
     },

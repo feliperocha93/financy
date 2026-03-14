@@ -15,19 +15,18 @@ A full-stack app to track spending, manage categories, and keep your money in or
 | | |
 |---|---|
 | **Frontend** | React · Vite · TypeScript · Apollo Client · TanStack Query · Tailwind CSS · React Hook Form · Zod · Radix UI |
-| **Backend** | Node.js · TypeScript · GraphQL (Apollo Server) · Prisma · PostgreSQL · JWT |
+| **Backend** | Node.js · TypeScript · GraphQL (Apollo Server) · Prisma · SQLite · JWT |
 
 ---
 
 ## Quick start
 
-**Prerequisites:** Node.js 20+, Docker (for PostgreSQL), pnpm
+**Prerequisites:** Node.js 20+, pnpm
 
 ```bash
-# 1. Backend — start DB and API
+# 1. Backend — start API
 cd backend
 cp .env.example .env
-docker-compose up -d
 pnpm install
 pnpm exec prisma migrate dev --name init
 pnpm run dev
